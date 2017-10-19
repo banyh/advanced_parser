@@ -164,7 +164,7 @@ class AdvParser(BasicParser):
         post_remove_oneline_link,
     ]
     _parse_cover_info = parse_cover_info_basic
-    _parse_keywords = parse_keywords_empty
+    _parse_keywords = parse_keywords_meta
 
     #
     # ------------ Don't Override following attributes --------------

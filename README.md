@@ -1,13 +1,13 @@
 # advanced_parser
 
-## Installation
+## 如果你要使用寫好的Parser
 
 ```
 pip install git+ssh://git@github.com/banyh/advanced_parser.git
 ```
 
 
-## Usage
+### 使用方式
 
 ```python
 from advanced_parser import auto_parse
@@ -24,10 +24,14 @@ result.cover_info.title  # 標題
 result.cover_info.cover_image  # 封面照片
 ```
 
+## 如果你要開發新的Parser
 
-## Extensions
+跟我要權限，然後clone下來。
+```
+git clone git@github.com:banyh/advanced_parser.git
+```
 
-如何新增parser：
+### 新增parser的步驟
 
 1. 新增`parser_xxxxx.py`，裡面定義`class XxxxxParser(AdvParser)`
 2. 至少要設定`_starting_selectors, _ending_criteria, post_process_functions`
