@@ -7,18 +7,10 @@ try:
     unicode = unicode
 except:
     unicode = str
-from .helper import (
-    parse_cover_info_basic,
-    parse_keywords_empty,
-    post_remove_whitespaces,
-    post_remove_oneline_link,
-    parse_img_tag,
-    parse_youtube_iframe_tag,
-    parse_h1_to_h4_tag,
-    ParseError,
-    ParsedContent,
-    Result,
-)
+from .helper import parse_cover_info_basic, parse_keywords_meta, parse_keywords_empty
+from .helper import post_remove_whitespaces, post_remove_oneline_link, parse_img_tag
+from .helper import parse_youtube_iframe_tag, parse_h1_to_h4_tag, ParseError, ParsedContent, Result
+
 from .detectlang import detect_supported_language
 from .basic_parser import BasicParser
 
@@ -65,6 +57,10 @@ class GorgeousSoup(BeautifulSoup):
         self.unwanted_selectors = unwanted_selectors
         self.starting_selectors = starting_selectors
         self.ending_criteria = ending_criteria
+
+        MSG = 'Even you don\'t need "{}" in ending_criteria, you still need to set "{}": []'
+        assert 'class' in ending_criteria, MSG.format('class', 'class')
+        assert 'id' in ending_criteria, MSG.format('id', 'id')
         self._remove_unwanted()
         self.all_items
 

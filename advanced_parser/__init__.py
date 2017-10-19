@@ -6,11 +6,19 @@ from .detectlang import detect_supported_language
 
 from .parser_excite import ExciteParser
 from .parser_oricon import OriconParser
+from .parser_qq import QQSportParser
+from .parser_sohu import SohuParser
+from .parser_sina import SinaParser
+from .parser_xinhua import XinhuaParser
 
 
 _parser_url_matcher = [
-    ('.*excite.co.jp.*', ExciteParser),
-    ('.*oricon.co.jp.*', OriconParser),
+    ('.*excite\.co\.jp.*', ExciteParser),
+    ('.*oricon\.co\.jp.*', OriconParser),
+    ('.*sports\.qq\.com.*', QQSportParser),
+    ('.*sports\.sohu\.com.*', SohuParser),
+    ('.*sina\.com.*', SinaParser),
+    ('.*xinhuanet\.com.*', XinhuaParser),
 ]
 
 

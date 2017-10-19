@@ -57,8 +57,12 @@ def is_youtube(path):
 
 
 def parse_cover_info_basic(parser, soup):
-    article_title = soup.find_all('meta', property='og:title')[0].attrs['content']
-    article_title = re.sub(' \| .*', '', article_title)
+    try:
+        article_title = soup.find_all('meta', property='og:title')[0].attrs['content']
+        article_title = re.sub(' \| .*', '', article_title)
+    except:
+        article_title = soup.find_all('title')[0].text
+        article_title = re.sub('_.*', '', article_title).strip()
     try:
         cover_image = soup.find_all('meta', property='og:image')[0].attrs['content']
         cover_info = CoverInfo(title=article_title, cover_image=cover_image)
